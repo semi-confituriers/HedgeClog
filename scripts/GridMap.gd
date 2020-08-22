@@ -2,7 +2,7 @@ extends GridMap
 
 
 var tile_props = {
-	"tile_desk": {
+	"tile_desk_11": {
 		"init": null,
 		"on_enter": null,
 		"collision": "/root/Game/CollisionLib/C_full",
@@ -17,9 +17,19 @@ var tile_props = {
 		"on_enter": null,
 		"collision": "/root/Game/CollisionLib/C_full",
 	},
+	"tile_wall_corner": {
+		"init": null,
+		"on_enter": null,
+		"collision": "/root/Game/CollisionLib/C_full",
+	},
 	"tile_fire": {
 		"init": null,
 		"on_enter": funcref(self, "on_enter_fire"),
+		"collision": null,
+	},
+	"tile_exit": {
+		"init": null,
+		"on_enter": funcref(self, "on_enter_exit"),
 		"collision": null,
 	},
 	"_": {
@@ -91,5 +101,16 @@ func on_enter_fire(hedgehog: Node):
 	# TODO
 
 
+func on_enter_exit(hedgehog: Node):
+	hedgehog.queue_free()
+	
+	yield(get_tree().create_timer(1.0), "timeout")
+	
+	if len(get_node("/root/Game/Level/hedgehogs").get_children()) == 0:
+		print("Victory !")
+		get_tree().quit()
+	
+	
+	
 
 
