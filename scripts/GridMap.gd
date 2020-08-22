@@ -108,7 +108,8 @@ func on_enter_exit(hedgehog: Node):
 	
 	if len(get_node("/root/Game/Level/hedgehogs").get_children()) == 0:
 		print("Victory !")
-		get_tree().quit()
+		get_node("/root/Game").next_level()
+		
 	
 	
 	
