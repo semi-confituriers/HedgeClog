@@ -5,11 +5,12 @@
 [node name="Level" type="Spatial"]
 
 [node name="GridMap" type="GridMap" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 mesh_library = ExtResource( 1 )
 cell_size = Vector3( 1, 1, 1 )
 cell_scale = 0.5
 data = {
-"cells": PoolIntArray( 65530, 65535, 536870913, 65531, 65535, 536870916, 65532, 65535, 536870912, 65533, 65535, 536870915, 65534, 65535, 4, 65535, 65535, 4 )
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 3, 2, 0, 2, 65534, 0, 1, 65535, 0, 1073741828, 65536, 0, 536870914, 131071, 0, 2 )
 }
 __meta__ = {
 "_editor_clip_": 0
