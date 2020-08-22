@@ -8,20 +8,25 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://git_api.gdns"
+} ]
 _global_script_class_icons={
-
+"GitAPI": ""
 }
 
 [application]
 
 config/name="HedgeClog"
-run/main_scene="res://levels/level1.tscn"
+run/main_scene="res://game.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
 
-singletons=[  ]
+singletons=[ "res://git_api.gdnlib" ]
 
 [rendering]
 
