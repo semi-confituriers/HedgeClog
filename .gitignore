@@ -1,0 +1,10 @@
+# Import cache
+.import/
+
+# Binaries
+bin/
+build/
+lib/
+
+git_api.gdnlib
+git_api.gdns
