@@ -98,19 +98,27 @@ func _ready():
 
 func on_enter_fire(hedgehog: Node):
 	print(hedgehog, " has been roasted")
+	hedgehog.playSound("Roasted")
 	hedgehog.get_node('Sprite').play("dead")
-	# TODO
+	get_node("/root/Game").locked_hedgehogs = true
 
 
 func on_enter_exit(hedgehog: Node):
-	hedgehog.queue_free()
+	hedgehog.visible = false
 	
-	yield(get_tree().create_timer(1.0), "timeout")
-	
-	if len(get_node("/root/Game/Level/hedgehogs").get_children()) == 0:
-		print("Victory !")
-		get_node("/root/Game").next_level()
+	var finished = true
+	for hedgehog in get_node("/root/Game/Level/hedgehogs").get_children():
+		if hedgehog.visible == true:
+			finished = false
+			break
 		
+	
+	if finished:
+		hedgehog.playSound("Victory")
+		yield(get_tree().create_timer(1.0), "timeout")
+		get_node("/root/Game").next_level()
+	else:
+		hedgehog.playSound("Exited")
 	
 	
 	

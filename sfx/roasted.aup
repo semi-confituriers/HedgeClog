@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="roasted_data" version="1.3.0" audacityversion="2.4.1" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="92.3148626911" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Audio Track" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.778279" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="112128">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f422.au" len="112128" min="-0.268037" max="0.303642" rms="0.071525"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.778279" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="112128">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f105.au" len="112128" min="-0.270254" max="0.305613" rms="0.071843"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="249418__midimagician__fire-burning-loop" isSelected="1" height="150" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="24000" gain="0.707946" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="139349">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1ff5c.au" len="139349" min="-0.805145" max="0.739227" rms="0.095268"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="4">
+				<controlpoint t="0.000000000000" val="0.711267590523"/>
+				<controlpoint t="0.184152361867" val="1.415493011475"/>
+				<controlpoint t="3.141422643614" val="0.859154939651"/>
+				<controlpoint t="5.730388201627" val="0.014084517956"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>
