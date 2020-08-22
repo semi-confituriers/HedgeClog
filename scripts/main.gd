@@ -9,7 +9,8 @@ func _ready():
 
 func moveHedgehogs(direction: Vector2):
 	for hedgehog in $Level/hedgehogs.get_children():
-		hedgehog.translation += Vector3(direction.x, 0, direction.y)
+		$Level/GridMap.try_move(hedgehog, direction)
+		#hedgehog.translation += Vector3(direction.x, 0, direction.y)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):

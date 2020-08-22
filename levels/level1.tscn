@@ -1,29 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://mesh/tiles-meshlib.tres" type="MeshLibrary" id=1]
-[ext_resource path="res://GridMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GridMap.tscn" type="PackedScene" id=2]
+
 
 [sub_resource type="CylinderMesh" id=1]
 
 [node name="Level" type="Spatial"]
 
-[node name="GridMap2" parent="." instance=ExtResource( 2 )]
+[node name="GridMap" parent="." instance=ExtResource( 2 )]
+collision_layer = 2
 data = {
-"cells": PoolIntArray( 0, 0, 1507332, 1, 0, 1507332, 2, 0, 1507332, 65535, 0, 1507330, 0, 1, 1507332, 1, 1, 1507332, 2, 1, 1507332, 65535, 1, 1507330, 0, 65532, 262147, 1, 65532, 917507, 0, 65533, 262147, 1, 65533, 917507, 0, 65534, 262148, 1, 65534, 262148, 2, 65534, 1507331, 65535, 65534, 1507329, 0, 65535, 1507328, 1, 65535, 1507332, 2, 65535, 1507332, 65535, 65535, 1507330 )
-}
-
-[node name="GridMap" type="GridMap" parent="."]
-visible = false
-mesh_library = ExtResource( 1 )
-cell_size = Vector3( 1, 1, 1 )
-cell_center_y = false
-cell_scale = 0.5
-data = {
-"cells": PoolIntArray( 0, 0, 1507332, 1, 0, 1507332, 2, 0, 1507332, 65535, 0, 1507330, 0, 1, 1507332, 1, 1, 1507332, 2, 1, 1507332, 65535, 1, 1507330, 0, 65532, 262147, 1, 65532, 917507, 0, 65533, 262147, 1, 65533, 917507, 0, 65534, 262148, 1, 65534, 262148, 2, 65534, 1507331, 65535, 65534, 1507329, 0, 65535, 1507328, 1, 65535, 1507332, 2, 65535, 1507332, 65535, 65535, 1507330 )
-}
-__meta__ = {
-"_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, 0, 0 )
+"cells": PoolIntArray( 0, 0, 1245185, 1, 0, 1245185, 2, 0, 1245185, 3, 0, 1507329, 4, 0, 1507329, 65535, 0, 1507330, 0, 1, -1609367551, 1, 1, 1245185, 2, 1, 1507332, 3, 1, 1507329, 4, 1, 1507329, 65535, 1, 1507330, 0, 2, 1507329, 1, 2, -1609105407, 1, 65531, 917509, 0, 65532, 1507330, 1, 65532, -1609367551, 0, 65533, 917506, 1, 65533, 1245185, 2, 65533, 1507329, 65535, 65533, -1609105405, 0, 65534, 1245185, 1, 65534, 1245185, 2, 65534, 1245185, 3, 65534, 1507329, 65535, 65534, 1507330, 0, 65535, 1507328, 1, 65535, 1245185, 2, 65535, 1245185, 3, 65535, -1072234495, 4, 65535, 1507329, 65535, 65535, 1507330 )
 }
 
 [node name="hedgehogs" type="Spatial" parent="."]

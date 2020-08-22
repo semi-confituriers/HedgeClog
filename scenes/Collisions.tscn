@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="CollisionLib" type="Spatial"]
+
+[node name="C_full" type="StaticBody" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="C_full"]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 1, 0 )
+shape = SubResource( 1 )

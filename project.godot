@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 singletons=[ "res://git_api.gdnlib" ]
 
+[physics]
+
+3d/default_linear_damp=-1.0
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
