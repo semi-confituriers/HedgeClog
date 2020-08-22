@@ -11,5 +11,5 @@ dest_files=[ "res://.import/impale.ogg-c3bc9d11154628c73d34acb93e2b58fd.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

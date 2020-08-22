@@ -34,16 +34,22 @@ func moveHedgehogs(direction: Vector2):
 	# Hedgehog proximity detection
 	# o(n²) in all its glory !
 	for hedgehog in $Level/hedgehogs.get_children():
+		if hedgehog.visible == false:
+			continue
+		
 		for hedgehog_friend in $Level/hedgehogs.get_children():
 			if hedgehog == hedgehog_friend:
+				continue
+			
+			if hedgehog_friend.visible == false:
 				continue
 			
 			var dist = hedgehog_friend.translation - hedgehog.translation
 			if dist.length() < 1.1:
 				locked_hedgehogs = true
 				hedgehog.get_node('Sprite').play('rolled')
-				hedgehog_friend.get_node('Sprite').play('rolled')				
-				print("Sqweeeak")
+				hedgehog_friend.get_node('Sprite').play('rolled')
+				hedgehog.playSound("SpikeBall")
 				break
 		
 		if locked_hedgehogs == true:

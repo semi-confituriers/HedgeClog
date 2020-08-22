@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/roasted.ogg-3d2d8c062a72359f21b3f23b464b39a0.oggstr"
+
+[deps]
+
+source_file="res://sfx/roasted.ogg"
+dest_files=[ "res://.import/roasted.ogg-3d2d8c062a72359f21b3f23b464b39a0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
