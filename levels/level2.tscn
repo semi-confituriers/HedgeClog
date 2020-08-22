@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/GridMap.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CylinderMesh" id=1]
+
+[node name="Level" type="Spatial"]
+
+[node name="GridMap" parent="." instance=ExtResource( 2 )]
+collision_layer = 2
+data = {
+"cells": PoolIntArray( 0, 0, 1507328, 1, 0, 1245185, 2, 0, 1245185, 3, 0, 1507329, 4, 0, 1245184, 65535, 0, -1609105406, 0, 1, 1245185, 1, 1, 1245185, 2, 1, -1609105407, 3, 1, 1507329, 4, 1, 1507329, 65535, 1, 1507330, 0, 2, -1072234495, 1, 2, -1609105407, 2, 2, 1507329, 3, 2, 1507329, 4, 2, 1507329, 65535, 2, 1507330, 2, 65531, 917509, 1, 65532, 1507330, 2, 65532, -1072234495, 0, 65533, 917506, 1, 65533, 1507330, 2, 65533, -1609367551, 65535, 65533, -1609105405, 0, 65534, -1072496639, 1, 65534, -1072496639, 2, 65534, 1245185, 3, 65534, 1507329, 4, 65534, -1609105407, 65535, 65534, 1507330, 0, 65535, 1507329, 1, 65535, 1245185, 2, 65535, 1245185, 3, 65535, 1507329, 4, 65535, 1507329, 65535, 65535, -1609105406 )
+}
+
+[node name="hedgehogs" type="Spatial" parent="."]
+
+[node name="hedgehog" type="MeshInstance" parent="hedgehogs"]
+transform = Transform( 0.2, 0, 0, 0, 0.5, 0, 0, 0, 0.2, 1.5, 0.5, 0.5 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="hedgehog2" type="MeshInstance" parent="hedgehogs"]
+transform = Transform( 0.2, 0, 0, 0, 0.5, 0, 0, 0, 0.2, 3.5, 0.5, 0.5 )
+mesh = SubResource( 1 )
+material/0 = null
