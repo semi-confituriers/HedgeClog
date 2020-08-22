@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sb_wonderful.ogg-6ff5a39b9f4e19e54ba9c7b579b5996b.oggstr"
+
+[deps]
+
+source_file="res://sfx/sb_wonderful.ogg"
+dest_files=[ "res://.import/sb_wonderful.ogg-6ff5a39b9f4e19e54ba9c7b579b5996b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

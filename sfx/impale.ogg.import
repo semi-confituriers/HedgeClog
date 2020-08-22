@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impale.ogg-c3bc9d11154628c73d34acb93e2b58fd.oggstr"
+
+[deps]
+
+source_file="res://sfx/impale.ogg"
+dest_files=[ "res://.import/impale.ogg-c3bc9d11154628c73d34acb93e2b58fd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

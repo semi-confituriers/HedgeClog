@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wipipipiii.ogg-c2882a0eb548f55cc62df913d19e9203.oggstr"
+
+[deps]
+
+source_file="res://sfx/wipipipiii.ogg"
+dest_files=[ "res://.import/wipipipiii.ogg-c2882a0eb548f55cc62df913d19e9203.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
