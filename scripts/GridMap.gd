@@ -43,11 +43,18 @@ func _get_tile_props(tile_item_id: int):
 	var name = mesh_library.get_item_name(tile_item_id)
 	return tile_props.get(name, tile_props["_"])
 		
-func get_tile_at(pos: Vector2):
+func get_tile_at(pos: Vector2) -> Vector2:
 	return Vector2(floor(pos.x), floor(pos.y))
 	
-func get_tile_center(tile_pos: Vector2):
+func get_tile_at_vec3(pos: Vector3) -> Vector2:
+	return get_tile_at(Vector2(floor(pos.x), floor(pos.z)))
+	
+	
+func get_tile_center(tile_pos: Vector2) -> Vector2:
 	return tile_pos + Vector2(0.5, 0.5)
+	
+func get_tile_center_vec3(tile_pos: Vector2) -> Vector3:
+	return Vector3(tile_pos.x + 0.5, 0, tile_pos.y + 0.5)
 	
 
 func try_move(hedgehog: Node, direction: Vector2):

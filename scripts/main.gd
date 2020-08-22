@@ -26,6 +26,13 @@ func load_level(level: int):
 	var new_level = new_level_res.instance()
 	new_level.name = "Level"
 	add_child(new_level)
+	
+	var grid = new_level.get_node("GridMap")
+	for hedgehog in new_level.get_node("hedgehogs").get_children():
+		var tile_pos = grid.get_tile_at_vec3(hedgehog.translation)
+		hedgehog.translation = grid.get_tile_center_vec3(tile_pos)
+		
+		
 
 func moveHedgehogs(direction: Vector2):
 	for hedgehog in $Level/hedgehogs.get_children():
