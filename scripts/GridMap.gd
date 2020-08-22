@@ -65,7 +65,7 @@ func try_move(hedgehog: Node, direction: Vector2):
 	# OnEnter callback
 	var tile_props = _get_tile_props(to_cell_id)
 	if tile_props.on_enter != null:
-		call(tile_props.on_enter, hedgehog)
+		tile_props.on_enter.call_func(hedgehog)
 		
 	return true
 
@@ -79,7 +79,7 @@ func _ready():
 			tile_position.y,
 			tile_position.z)
 		var tile_props = _get_tile_props(cell_id)
-		if tile_props["collision"]:
+		if tile_props.collision:
 			var new_collision = get_node(tile_props.collision).duplicate()
 			new_collision.translation = tile_position + Vector3(0.5, 0, 0.5)
 			add_child(new_collision)
