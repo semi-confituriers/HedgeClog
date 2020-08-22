@@ -1,10 +1,5 @@
 extends GridMap
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var collision_id_dict = {
 	0 : 'C_desk'
 }
@@ -24,13 +19,6 @@ func _instantiate_collision_map():
 		if collision_shape:
 			var new_collision = get_node(collision_shape).duplicate()
 			new_collision.translation = tile_position
-			print("expected")
-			print(tile_position)
-			print('object position')
-			print(new_collision.translation)
-			print('lolol')
-			print(new_collision.get_child(0))
 			add_child(new_collision)
-			print(new_collision.get_child(0).translation)
 			
 
