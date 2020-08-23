@@ -15,7 +15,7 @@ var tile_props = {
 		"collision": null,
 	},
 	"tile_fire": {
-		"init": null,
+		"init": funcref(self, "on_init_fire"),
 		"on_enter": funcref(self, "on_enter_fire"),
 		"collision": null,
 	},
@@ -48,7 +48,6 @@ func get_tile_center(tile_pos: Vector2) -> Vector2:
 func get_tile_center_vec3(tile_pos: Vector2) -> Vector3:
 	return Vector3(tile_pos.x + 0.5, 0, tile_pos.y + 0.5)
 	
-
 func try_move(hedgehog: Node, direction: Vector2):
 	var from_cell = get_tile_at(Vector2(hedgehog.translation.x, hedgehog.translation.z))
 	var to_cell = from_cell + direction
@@ -89,14 +88,24 @@ func _ready():
 			tile_position.x,
 			tile_position.y,
 			tile_position.z)
+		var tile_center = tile_position + Vector3(0.5, 0, 0.5)
 		var tile_props = _get_tile_props(cell_id)
 		if tile_props.collision:
 			var new_collision = get_node(tile_props.collision).duplicate()
-			new_collision.translation = tile_position + Vector3(0.5, 0, 0.5)
+			new_collision.translation = tile_center
 			add_child(new_collision)
+			
+		if tile_props.init != null:
+			tile_props.init.call_func(tile_center)
 
 
 
+func on_init_fire(center: Vector3):
+	var fire_scene = load("res://scenes/tile_fire.tscn")
+	var fire_inst = fire_scene.instance()
+	fire_inst.translation = center
+	add_child(fire_inst)
+	
 func on_enter_fire(hedgehog: Node):
 	hedgehog.roast()
 	get_node("/root/Game").locked_hedgehogs = true
