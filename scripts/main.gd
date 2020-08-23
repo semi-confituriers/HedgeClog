@@ -1,7 +1,7 @@
 extends Spatial
 
 var locked_hedgehogs = false
-var current_level_id = 1
+var current_level_id = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +22,7 @@ func load_level(level: int):
 	locked_hedgehogs = false
 	current_level_id = level
 	
+	print("Loading level ", level)
 	var new_level_res = load("res://levels/level" + str(level) + ".tscn")
 	var new_level = new_level_res.instance()
 	new_level.name = "Level"
@@ -30,37 +31,45 @@ func load_level(level: int):
 	var grid = new_level.get_node("GridMap")
 	for hedgehog in new_level.get_node("hedgehogs").get_children():
 		var tile_pos = grid.get_tile_at_vec3(hedgehog.translation)
+		hedgehog.tile = tile_pos
 		hedgehog.translation = grid.get_tile_center_vec3(tile_pos)
 		
-		
+func hasMovingHedgehogs():
+	for hedgehog in $Level/hedgehogs.get_children():
+		if hedgehog.moving:
+			return true
+	return false
 
 func moveHedgehogs(direction: Vector2):
+	if hasMovingHedgehogs():
+		return
+		
 	for hedgehog in $Level/hedgehogs.get_children():
+		if hedgehog.visible == false:
+			continue
 		$Level/GridMap.try_move(hedgehog, direction)
+		
+	while hasMovingHedgehogs():
+		yield(get_tree().create_timer(0.05), "timeout")
 		
 	# Hedgehog proximity detection
 	# o(n²) in all its glory !
 	for hedgehog in $Level/hedgehogs.get_children():
-		if hedgehog.visible == false:
+		if hedgehog.visible == false or hedgehog.dead == true:
 			continue
 		
 		for hedgehog_friend in $Level/hedgehogs.get_children():
 			if hedgehog == hedgehog_friend:
 				continue
 			
-			if hedgehog_friend.visible == false:
+			if hedgehog_friend.visible == false or hedgehog.dead == true:
 				continue
 			
-			var dist = hedgehog_friend.translation - hedgehog.translation
+			var dist = hedgehog_friend.tile - hedgehog.tile
 			if dist.length() < 1.1:
 				locked_hedgehogs = true
 				hedgehog.rollItself()
 				yield(get_tree().create_timer(0.15), "timeout")
-				hedgehog_friend.rollItself()
-				break
-		
-		if locked_hedgehogs == true:
-			break
 		
 
 func _process(delta):

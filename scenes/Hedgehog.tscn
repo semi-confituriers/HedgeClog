@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://sfx/exited.ogg" type="AudioStream" id=1]
 [ext_resource path="res://text/hed_schema_3.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://sfx/victory.ogg" type="AudioStream" id=7]
 [ext_resource path="res://sfx/roasted.ogg" type="AudioStream" id=8]
 [ext_resource path="res://sfx/bump.ogg" type="AudioStream" id=9]
+[ext_resource path="res://sfx/slide_start.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sfx/slide_loop.ogg" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -17,14 +19,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "rolled",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "rolled",
 "speed": 5.0
 } ]
 
@@ -153,6 +155,12 @@ stream = ExtResource( 6 )
 
 [node name="Bump" type="AudioStreamPlayer3D" parent="Sfx"]
 stream = ExtResource( 9 )
+
+[node name="SlideStart" type="AudioStreamPlayer3D" parent="Sfx"]
+stream = ExtResource( 10 )
+
+[node name="SlideLoop" type="AudioStreamPlayer3D" parent="Sfx"]
+stream = ExtResource( 11 )
 
 [node name="Animations" type="AnimationPlayer" parent="."]
 method_call_mode = 1

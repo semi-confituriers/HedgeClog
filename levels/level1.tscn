@@ -1,33 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/Hedgehog .tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Hedgehog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/GridMap.tscn" type="PackedScene" id=2]
-
-[sub_resource type="CylinderMesh" id=1]
 
 [node name="Level" type="Spatial"]
 
 [node name="GridMap" parent="." instance=ExtResource( 2 )]
 collision_layer = 2
 data = {
-"cells": PoolIntArray( 0, 0, 1245185, 1, 0, 1245185, 2, 0, 1245185, 3, 0, 1507329, 4, 0, 1507329, 65535, 0, 1507330, 0, 1, 1245185, 1, 1, 1245185, 2, 1, 1507332, 3, 1, 1507329, 4, 1, 1507329, 65535, 1, 1507330, 0, 2, 1507329, 1, 2, 1507329, 1, 65531, 917509, 0, 65532, 1507330, 1, 65532, 1245185, 0, 65533, 917506, 1, 65533, 1245185, 2, 65533, 1507329, 65535, 65533, 1507331, 0, 65534, 1245185, 1, 65534, 1245185, 2, 65534, 1245185, 3, 65534, 1507329, 65535, 65534, 1507330, 0, 65535, 1507328, 1, 65535, 1245185, 2, 65535, 1245185, 3, 65535, 1507329, 4, 65535, 1507329, 65535, 65535, 1507330 )
+"cells": PoolIntArray( 0, 0, 1507335, 1, 0, 262144, 2, 0, 1507328, 65535, 0, 1507331, 0, 1, 262144, 1, 1, 262144, 2, 1, 1507333, 65535, 1, 1507331, 0, 2, 1507333, 1, 2, 1507333, 2, 2, 262149, 65535, 2, 1507331, 0, 65530, 1507330, 1, 65530, -1609695226, 0, 65531, -1609105405, 1, 65531, 1507328, 0, 65532, -1609695231, 1, 65532, 262144, 65535, 65532, 1507330, 0, 65533, 1507328, 1, 65533, 262144, 2, 65533, 1507337, 65535, 65533, 1507331, 0, 65534, 262144, 1, 65534, 1507333, 2, 65534, 1507336, 65535, 65534, 1507331, 0, 65535, 1507328, 1, 65535, 262144, 2, 65535, 262144, 65535, 65535, 1507331 )
 }
-
-[node name="hedgehog" type="MeshInstance" parent="."]
-transform = Transform( 0.2, 0, 0, 0, 0.5, 0, 0, 0, 0.2, 0.5, 0.5, 0.5 )
-visible = false
-mesh = SubResource( 1 )
-material/0 = null
-
-[node name="hedgehog2" type="MeshInstance" parent="."]
-transform = Transform( 0.2, 0, 0, 0, 0.5, 0, 0, 0, 0.2, 1.5, 0.5, -0.5 )
-visible = false
-mesh = SubResource( 1 )
-material/0 = null
 
 [node name="hedgehogs" type="Spatial" parent="."]
 
 [node name="Hedgehog " parent="hedgehogs" instance=ExtResource( 1 )]
+transform = Transform( 0.983407, 0.0996704, -0.151579, -0.125768, 0.976735, -0.173699, 0.13074, 0.18988, 0.973063, 1.39768, 0.337637, 0.312304 )
 
-[node name="Hedgehog 2" parent="hedgehogs" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0 )
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.5, -0.612373, 0.612372, 0, 0.707107, 0.707107, -0.866025, -0.353553, 0.353553, 2.767, 1.915, -0.06 )
+projection = 1
+size = 7.0

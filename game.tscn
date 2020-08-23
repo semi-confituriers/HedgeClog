@@ -1,21 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://sfx/sb_wonderful.ogg" type="AudioStream" id=1]
 [ext_resource path="res://scripts/main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Collisions.tscn" type="PackedScene" id=3]
 
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.286275, 0.454902, 0.517647, 1 )
+ambient_light_color = Color( 1, 0.964706, 0.866667, 1 )
+ambient_light_energy = 0.1
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.53
+
 [node name="Game" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.5, -0.612373, 0.612372, 0, 0.707107, 0.707107, -0.866025, -0.353553, 0.353553, 4.19356, 3.41283, 1.61733 )
-projection = 1
-current = true
-size = 6.0
-
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-light_color = Color( 0.996078, 0.968627, 0.752941, 1 )
-light_energy = 0.33
+transform = Transform( 0.861415, -0.361442, 0.356826, -0.1922, 0.418327, 0.887728, -0.470132, -0.833284, 0.290884, 0, 0, 0 )
+light_color = Color( 0.72549, 0.862745, 0.945098, 1 )
+light_energy = 0.7
 
 [node name="CollisionLib" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
@@ -24,3 +28,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
 stream = ExtResource( 1 )
 volume_db = -20.0
 autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
