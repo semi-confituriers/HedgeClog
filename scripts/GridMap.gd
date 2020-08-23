@@ -52,28 +52,49 @@ func get_tile_center(tile_pos: Vector2) -> Vector2:
 func get_tile_center_vec3(tile_pos: Vector2) -> Vector3:
 	return Vector3(tile_pos.x + 0.5, 0, tile_pos.y + 0.5)
 	
-func try_move(hedgehog: Node, direction: Vector2):
-	var from_cell = get_tile_at(Vector2(hedgehog.translation.x, hedgehog.translation.z))
-	var to_cell = from_cell + direction
-	
-	var to_cell_id = get_cell_item(to_cell.x, 0, to_cell.y)
-	if to_cell_id == INVALID_CELL_ITEM:
-		return false
-		
-	var ray_start = Vector3(hedgehog.translation.x, 1, hedgehog.translation.z)
-	var ray_end = Vector3(to_cell.x + 0.5, 1, to_cell.y + 0.5)
+func get_los(from: Vector2, to: Vector2):
+	var ray_start = Vector3(from.x, 1, from.y)
+	var ray_end = Vector3(to.x, 1, to.y)
 
 	var space_state = get_world().direct_space_state
 	var intersect = space_state.intersect_ray(ray_start, ray_end, [], 0b10)
 
 	if intersect:
+		return false
+	return true
+	
+func try_move(hedgehog: Node, direction: Vector2):
+	var from_cell = get_tile_at(Vector2(hedgehog.translation.x, hedgehog.translation.z))
+	var to_cell = from_cell + direction
+		
+	var to_cell_id = get_cell_item(to_cell.x, 0, to_cell.y)
+	if to_cell_id == INVALID_CELL_ITEM:
+		return false
+	
+	# Sliding mechanic
+	var sliding = false
+	while mesh_library.get_item_name(to_cell_id) == "tile_water":
+		sliding = true
+		var forward_cell = to_cell + direction
+		var forward_cell_id = get_cell_item(forward_cell.x, 0, forward_cell.y)
+		
+		if forward_cell_id == INVALID_CELL_ITEM:
+			break
+		
+		if get_los(get_tile_center(from_cell), get_tile_center(forward_cell)):
+			to_cell = forward_cell
+			to_cell_id = forward_cell_id
+		else:
+			break
+
+	if not get_los(get_tile_center(from_cell), get_tile_center(to_cell)):
 		hedgehog.bumpDirection(get_tile_center_vec3(from_cell), direction)
 		return false
 	
 	# Move hedgehog
 	var dest = get_tile_center(to_cell)
 	#hedgehog.translation = Vector3(dest.x, 0, dest.y)
-	hedgehog.walkToTile(self, to_cell)
+	hedgehog.walkToTile(self, to_cell, sliding)
 	
 	# OnEnter callback
 	var tile_props = _get_tile_props(to_cell_id)

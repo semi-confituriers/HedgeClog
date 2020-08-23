@@ -1,7 +1,7 @@
 extends Spatial
 
 var locked_hedgehogs = false
-var current_level_id = 1
+var current_level_id = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
