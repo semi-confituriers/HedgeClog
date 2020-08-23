@@ -70,7 +70,7 @@ func try_move(hedgehog: Node, direction: Vector2):
 	# Move hedgehog
 	var dest = get_tile_center(to_cell)
 	#hedgehog.translation = Vector3(dest.x, 0, dest.y)
-	hedgehog.walkToPos(get_tile_center_vec3(to_cell))
+	hedgehog.walkToTile(self, to_cell)
 	
 	# OnEnter callback
 	var tile_props = _get_tile_props(to_cell_id)

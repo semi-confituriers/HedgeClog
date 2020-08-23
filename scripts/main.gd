@@ -30,6 +30,7 @@ func load_level(level: int):
 	var grid = new_level.get_node("GridMap")
 	for hedgehog in new_level.get_node("hedgehogs").get_children():
 		var tile_pos = grid.get_tile_at_vec3(hedgehog.translation)
+		hedgehog.tile = tile_pos
 		hedgehog.translation = grid.get_tile_center_vec3(tile_pos)
 		
 		
@@ -51,7 +52,7 @@ func moveHedgehogs(direction: Vector2):
 			if hedgehog_friend.visible == false:
 				continue
 			
-			var dist = hedgehog_friend.translation - hedgehog.translation
+			var dist = hedgehog_friend.tile - hedgehog.tile
 			if dist.length() < 1.1:
 				locked_hedgehogs = true
 				hedgehog.rollItself()

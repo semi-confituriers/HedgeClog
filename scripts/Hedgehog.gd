@@ -1,5 +1,7 @@
 extends Spatial
 
+var tile: Vector2
+
 func playSound(sfx_name: String):
 	get_node("Sfx/" + sfx_name).play()
 
@@ -9,10 +11,13 @@ func rollItself():
 func roast():
 	$Animations.play("Roast")
 	
-func walkToPos(dest: Vector3):
+func walkToTile(grid: GridMap, dest: Vector2):
 	var from = translation
+	var to = grid.get_tile_center_vec3(dest)
+	tile = dest
+	
 	$Tween.interpolate_property(self, "translation",
-		from, dest, 0.2,
+		from, to, 0.2,
 		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
 	$Tween.start()
 
