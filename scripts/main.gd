@@ -22,6 +22,7 @@ func load_level(level: int):
 	locked_hedgehogs = false
 	current_level_id = level
 	
+	print("Loading level ", level)
 	var new_level_res = load("res://levels/level" + str(level) + ".tscn")
 	var new_level = new_level_res.instance()
 	new_level.name = "Level"
@@ -37,6 +38,8 @@ func load_level(level: int):
 
 func moveHedgehogs(direction: Vector2):
 	for hedgehog in $Level/hedgehogs.get_children():
+		if hedgehog.visible == false:
+			continue
 		$Level/GridMap.try_move(hedgehog, direction)
 		
 	# Hedgehog proximity detection

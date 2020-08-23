@@ -63,7 +63,6 @@ func try_move(hedgehog: Node, direction: Vector2):
 	var intersect = space_state.intersect_ray(ray_start, ray_end, [], 0b10)
 
 	if intersect:
-		print("Bumped into something: ", intersect)
 		hedgehog.bumpDirection(get_tile_center_vec3(from_cell), direction)
 		return false
 	
@@ -122,6 +121,7 @@ func on_enter_exit(hedgehog: Node):
 		
 	
 	if finished:
+		get_node("/root/Game").locked_hedgehogs = true
 		hedgehog.playSound("Victory")
 		yield(get_tree().create_timer(1.0), "timeout")
 		get_node("/root/Game").next_level()

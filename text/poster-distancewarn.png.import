@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/poster-distancewarn.png-c4c718607f70e3f532806e7d646dc561.s3tc.stex"
+path.etc="res://.import/poster-distancewarn.png-c4c718607f70e3f532806e7d646dc561.etc.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://text/poster-distancewarn.png"
+dest_files=[ "res://.import/poster-distancewarn.png-c4c718607f70e3f532806e7d646dc561.s3tc.stex", "res://.import/poster-distancewarn.png-c4c718607f70e3f532806e7d646dc561.etc.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
