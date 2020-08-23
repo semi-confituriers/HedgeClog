@@ -14,13 +14,13 @@ current = true
 size = 6.0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-light_color = Color( 0.956863, 0.866667, 0.596078, 1 )
-light_energy = 0.5
+light_color = Color( 0.996078, 0.968627, 0.752941, 1 )
+light_energy = 0.33
 
 [node name="CollisionLib" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -20.0
 autoplay = true
