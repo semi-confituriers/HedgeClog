@@ -35,7 +35,7 @@ frame_2/delay_sec = 0.0
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.479841, 0 )
 light_color = Color( 1, 0.607843, 0.101961, 1 )
-light_energy = 1.18408
+light_energy = 0.863438
 shadow_enabled = true
 omni_range = 2.0
 

@@ -20,7 +20,7 @@ var tile_props = {
 		"collision": null,
 	},
 	"tile_exit": {
-		"init": null,
+		"init": funcref(self, "on_init_exit"),
 		"on_enter": funcref(self, "on_enter_exit"),
 		"collision": null,
 	},
@@ -134,6 +134,12 @@ func on_enter_fire(hedgehog: Node):
 	get_node("/root/Game").locked_hedgehogs = true
 
 
+func on_init_exit(center: Vector3):
+	var fire_scene = load("res://scenes/tile_exit.tscn")
+	var fire_inst = fire_scene.instance()
+	fire_inst.translation = center
+	add_child(fire_inst)
+	
 func on_enter_exit(hedgehog: Node):
 	hedgehog.visible = false
 	
