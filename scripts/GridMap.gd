@@ -98,11 +98,12 @@ func try_move(hedgehog: Node, direction: Vector2):
 	# OnEnter callback
 	var tile_props = _get_tile_props(to_cell_id)
 	if tile_props.on_enter != null:
-		tile_props.on_enter.call_func(hedgehog)
-		
+		hedgehog.get_node("Tween").connect(
+			"tween_all_completed",
+			tile_props.on_enter, "call_func", [hedgehog]
+		)
+	
 	return true
-
-
 
 func _ready():
 	# Instanciate collision objects

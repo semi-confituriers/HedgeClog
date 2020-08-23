@@ -34,25 +34,35 @@ func load_level(level: int):
 		hedgehog.tile = tile_pos
 		hedgehog.translation = grid.get_tile_center_vec3(tile_pos)
 		
-		
+func hasMovingHedgehogs():
+	for hedgehog in $Level/hedgehogs.get_children():
+		if hedgehog.moving:
+			return true
+	return false
 
 func moveHedgehogs(direction: Vector2):
+	if hasMovingHedgehogs():
+		return
+		
 	for hedgehog in $Level/hedgehogs.get_children():
 		if hedgehog.visible == false:
 			continue
 		$Level/GridMap.try_move(hedgehog, direction)
 		
+	while hasMovingHedgehogs():
+		yield(get_tree().create_timer(0.05), "timeout")
+		
 	# Hedgehog proximity detection
 	# o(n²) in all its glory !
 	for hedgehog in $Level/hedgehogs.get_children():
-		if hedgehog.visible == false:
+		if hedgehog.visible == false or hedgehog.dead == true:
 			continue
 		
 		for hedgehog_friend in $Level/hedgehogs.get_children():
 			if hedgehog == hedgehog_friend:
 				continue
 			
-			if hedgehog_friend.visible == false:
+			if hedgehog_friend.visible == false or hedgehog.dead == true:
 				continue
 			
 			var dist = hedgehog_friend.tile - hedgehog.tile
@@ -60,11 +70,6 @@ func moveHedgehogs(direction: Vector2):
 				locked_hedgehogs = true
 				hedgehog.rollItself()
 				yield(get_tree().create_timer(0.15), "timeout")
-				hedgehog_friend.rollItself()
-				break
-		
-		if locked_hedgehogs == true:
-			break
 		
 
 func _process(delta):
