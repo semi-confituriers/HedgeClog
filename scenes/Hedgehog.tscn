@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sfx/exited.ogg" type="AudioStream" id=1]
 [ext_resource path="res://text/hed_schema_3.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sfx/spikeball.ogg" type="AudioStream" id=6]
 [ext_resource path="res://sfx/victory.ogg" type="AudioStream" id=7]
 [ext_resource path="res://sfx/roasted.ogg" type="AudioStream" id=8]
+[ext_resource path="res://sfx/bump.ogg" type="AudioStream" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -149,6 +150,9 @@ stream = ExtResource( 8 )
 
 [node name="SpikeBall" type="AudioStreamPlayer3D" parent="Sfx"]
 stream = ExtResource( 6 )
+
+[node name="Bump" type="AudioStreamPlayer3D" parent="Sfx"]
+stream = ExtResource( 9 )
 
 [node name="Animations" type="AnimationPlayer" parent="."]
 method_call_mode = 1

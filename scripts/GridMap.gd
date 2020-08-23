@@ -65,6 +65,7 @@ func try_move(hedgehog: Node, direction: Vector2):
 
 	if intersect:
 		print("Bumped into something: ", intersect)
+		hedgehog.bumpDirection(direction)
 		return false
 	
 	# Move hedgehog
