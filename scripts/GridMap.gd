@@ -104,9 +104,7 @@ func _ready():
 
 
 func on_enter_fire(hedgehog: Node):
-	print(hedgehog, " has been roasted")
-	hedgehog.playSound("Roasted")
-	hedgehog.get_node('Sprite').play("dead")
+	hedgehog.roast()
 	get_node("/root/Game").locked_hedgehogs = true
 
 
