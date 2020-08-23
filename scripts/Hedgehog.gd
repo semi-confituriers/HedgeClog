@@ -12,7 +12,7 @@ func roast():
 	$Animations.play("Roast")
 	
 func walkToTile(grid: GridMap, dest: Vector2, sliding: bool = false):
-	var from = translation
+	var from = grid.get_tile_center_vec3(tile)
 	var to = grid.get_tile_center_vec3(dest)
 	tile = dest
 	

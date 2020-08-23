@@ -64,7 +64,7 @@ func get_los(from: Vector2, to: Vector2):
 	return true
 	
 func try_move(hedgehog: Node, direction: Vector2):
-	var from_cell = get_tile_at(Vector2(hedgehog.translation.x, hedgehog.translation.z))
+	var from_cell = hedgehog.tile
 	var to_cell = from_cell + direction
 		
 	var to_cell_id = get_cell_item(to_cell.x, 0, to_cell.y)
@@ -93,7 +93,6 @@ func try_move(hedgehog: Node, direction: Vector2):
 	
 	# Move hedgehog
 	var dest = get_tile_center(to_cell)
-	#hedgehog.translation = Vector3(dest.x, 0, dest.y)
 	hedgehog.walkToTile(self, to_cell, sliding)
 	
 	# OnEnter callback
