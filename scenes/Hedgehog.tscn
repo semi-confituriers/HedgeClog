@@ -136,6 +136,7 @@ script = ExtResource( 4 )
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 transform = Transform( 0.190155, -0.23563, 0.234538, 0.00154933, 0.270817, 0.270822, -0.332457, -0.133511, 0.135411, -0.025, 0.527, 0.176 )
+billboard = 1
 frames = SubResource( 1 )
 animation = "idle"
 

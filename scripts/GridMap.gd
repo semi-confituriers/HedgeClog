@@ -128,6 +128,7 @@ func on_init_fire(center: Vector3):
 	var fire_scene = load("res://scenes/tile_fire.tscn")
 	var fire_inst = fire_scene.instance()
 	fire_inst.translation = center
+	fire_inst.get_node("OmniLight/AnimationPlayer").play("Flicker", -1, rand_range(0.1, 0.4))
 	add_child(fire_inst)
 	
 func on_enter_fire(hedgehog: Node):
