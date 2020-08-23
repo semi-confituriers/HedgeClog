@@ -54,9 +54,9 @@ func moveHedgehogs(direction: Vector2):
 			var dist = hedgehog_friend.translation - hedgehog.translation
 			if dist.length() < 1.1:
 				locked_hedgehogs = true
-				hedgehog.get_node('Sprite').play('rolled')
-				hedgehog_friend.get_node('Sprite').play('rolled')
-				hedgehog.playSound("SpikeBall")
+				hedgehog.rollItself()
+				yield(get_tree().create_timer(0.15), "timeout")
+				hedgehog_friend.rollItself()
 				break
 		
 		if locked_hedgehogs == true:
