@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/tiles.dae-a252259e62d648c8414a39d61ef95c95.scn"
+path="res://.import/tiles.gltf-86deeda3164aa7cb38e0b368d1c91220.scn"
 
 [deps]
 
-source_file="res://mesh/tiles.dae"
-dest_files=[ "res://.import/tiles.dae-a252259e62d648c8414a39d61ef95c95.scn" ]
+source_file="res://mesh/tiles.gltf"
+dest_files=[ "res://.import/tiles.gltf-86deeda3164aa7cb38e0b368d1c91220.scn" ]
 
 [params]
 
