@@ -2,7 +2,7 @@ extends GridMap
 
 
 var tile_props = {
-	"tile_desk": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
+	"title_desk": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
 	"tile_wall": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
 	"tile_wall_corner": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
 	"tile_wall_angle": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
@@ -33,7 +33,11 @@ var tile_props = {
 
 func _get_tile_props(tile_item_id: int):
 	var name = mesh_library.get_item_name(tile_item_id)
-	return tile_props.get(name, tile_props["_"])
+	var props = tile_props.get(name, null)
+	if props == null:
+		print("Warning: unhandled tile name: ", name)
+		return tile_props["_"]
+	return props
 		
 func get_tile_at(pos: Vector2) -> Vector2:
 	return Vector2(floor(pos.x), floor(pos.y))
