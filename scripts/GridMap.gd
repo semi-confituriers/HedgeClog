@@ -136,10 +136,15 @@ func on_enter_fire(hedgehog: Node):
 
 
 func on_init_exit(center: Vector3):
-	var fire_scene = load("res://scenes/tile_exit.tscn")
-	var fire_inst = fire_scene.instance()
-	fire_inst.translation = center
-	add_child(fire_inst)
+	var scene = load("res://scenes/tile_exit.tscn")
+	var inst = scene.instance()
+	
+	var tile_pos = get_tile_at_vec3(center)
+	var tile_orient = get_cell_item_orientation(tile_pos.x, 0, tile_pos.y)
+	
+	inst.translation = center
+	inst.rotation = _orthogonal_index_to_vector3(tile_orient)
+	add_child(inst)
 	
 func on_enter_exit(hedgehog: Node):
 	hedgehog.visible = false
@@ -161,5 +166,53 @@ func on_enter_exit(hedgehog: Node):
 	
 	
 	
-
+func _orthogonal_index_to_vector3(value):
+	if value == 0:
+		return(Vector3(0, 0, 0))
+	elif value == 1:
+		return(Vector3(0, 0, PI/2))
+	elif value == 2:
+		return(Vector3(0, 0, PI))
+	elif value == 3:
+		return(Vector3(0, 0, -PI/2))
+	elif value == 4:
+		return(Vector3(PI/2, 0, 0))
+	elif value == 5:
+		return(Vector3(PI, -PI/2, -PI/2))
+	elif value == 6:
+		return(Vector3(-PI/2, PI, 0))
+	elif value == 7:
+		return(Vector3(0, -PI/2, -PI/2))
+	elif value == 8:
+		return(Vector3(-PI, 0, 0))
+	elif value == 9:
+		return(Vector3(PI, 0, -PI/2))
+	elif value == 10:
+		return(Vector3(0, PI, 0))
+	elif value == 11:
+		return(Vector3(0, PI, -PI/2))
+	elif value == 12:
+		return(Vector3(-PI/2, 0, 0))
+	elif value == 13:
+		return(Vector3(0, -PI/2, PI/2))
+	elif value == 14:
+		return(Vector3(PI/2, 0, PI))
+	elif value == 15:
+		return(Vector3(0, PI/2, -PI/2))
+	elif value == 16:
+		return(Vector3(0, PI/2, 0))
+	elif value == 17:
+		return(Vector3(-PI/2, PI/2, 0))
+	elif value == 18:
+		return(Vector3(PI, PI/2, 0))
+	elif value == 19:
+		return(Vector3(PI/2, PI/2, 0))
+	elif value == 20:
+		return(Vector3(PI, -PI/2, 0))
+	elif value == 21:
+		return(Vector3(-PI/2, -PI/2, 0))
+	elif value == 22:
+		return(Vector3(0, -PI/2, 0))
+	elif value == 23:
+		return(Vector3(PI/2, -PI/2, 0))
 

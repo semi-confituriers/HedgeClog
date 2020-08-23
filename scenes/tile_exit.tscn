@@ -5,7 +5,7 @@
 [node name="exit" type="Spatial"]
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0.6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -0.8 )
 light_color = Color( 0.2, 0.984314, 0.0392157, 1 )
 shadow_enabled = true
 omni_range = 3.0
