@@ -2,25 +2,17 @@ extends GridMap
 
 
 var tile_props = {
-	"tile_desk_11": {
-		"init": null,
-		"on_enter": null,
-		"collision": "/root/Game/CollisionLib/C_full",
-	},
+	"tile_desk": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
+	"tile_wall": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
+	"tile_wall_corner": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
+	"tile_wall_angle": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
+	"tile_table_1": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
+	"tile_table_2": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
+	"tile_armoire": { "init": null, "on_enter": null, "collision": "/root/Game/CollisionLib/C_full" },
 	"tile_floor": {
 		"init": null,
 		"on_enter": null,
 		"collision": null,
-	},
-	"tile_wall": {
-		"init": null,
-		"on_enter": null,
-		"collision": "/root/Game/CollisionLib/C_full",
-	},
-	"tile_wall_corner": {
-		"init": null,
-		"on_enter": null,
-		"collision": "/root/Game/CollisionLib/C_full",
 	},
 	"tile_fire": {
 		"init": null,
@@ -77,7 +69,8 @@ func try_move(hedgehog: Node, direction: Vector2):
 	
 	# Move hedgehog
 	var dest = get_tile_center(to_cell)
-	hedgehog.translation = Vector3(dest.x, 0, dest.y)
+	#hedgehog.translation = Vector3(dest.x, 0, dest.y)
+	hedgehog.walkToPos(get_tile_center_vec3(to_cell))
 	
 	# OnEnter callback
 	var tile_props = _get_tile_props(to_cell_id)

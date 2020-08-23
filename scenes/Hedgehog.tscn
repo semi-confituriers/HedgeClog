@@ -129,11 +129,10 @@ tracks/3/keys = {
 }
 
 [node name="Hedgehog " type="Spatial"]
-transform = Transform( 0.983407, 0.0996704, -0.151579, -0.125768, 0.976735, -0.173699, 0.13074, 0.18988, 0.973063, 0.107038, 0.337637, -0.0696658 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
-transform = Transform( 0.190155, -0.23563, 0.234538, 0.00154933, 0.270817, 0.270822, -0.332457, -0.133511, 0.135411, 0.288, 0.755, 0.216 )
+transform = Transform( 0.190155, -0.23563, 0.234538, 0.00154933, 0.270817, 0.270822, -0.332457, -0.133511, 0.135411, 0.015, 0.812, 0.15 )
 frames = SubResource( 1 )
 animation = "idle"
 
@@ -155,3 +154,5 @@ stream = ExtResource( 6 )
 method_call_mode = 1
 anims/Roast = SubResource( 2 )
 anims/RollItself = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
