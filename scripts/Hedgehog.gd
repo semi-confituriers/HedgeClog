@@ -3,6 +3,21 @@ extends Spatial
 var tile: Vector2
 var moving: bool = false
 var dead : bool = false
+var elapsed: float = 0
+
+func _ready():
+	elapsed = rand_range(-5, 0)
+				
+func _process(delta):
+	elapsed += delta
+	if elapsed > 5.2:
+		if $Sprite.get_animation() == "idle.1":
+			$Sprite.set_animation("idle")
+		elapsed = rand_range(-1, 0)
+	if elapsed > 5.0:
+		if $Sprite.get_animation() == "idle":
+			$Sprite.set_animation("idle.1")
+			
 
 func playSound(sfx_name: String):
 	get_node("Sfx/" + sfx_name).play()

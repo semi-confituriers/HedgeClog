@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sfx/exited.ogg" type="AudioStream" id=1]
 [ext_resource path="res://text/hed_schema_3.png" type="Texture" id=2]
-[ext_resource path="res://text/hed_schema_1.png" type="Texture" id=3]
+[ext_resource path="res://text/hed_schema_1.1.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Hedgehog.gd" type="Script" id=4]
 [ext_resource path="res://text/hed_schema_2.png" type="Texture" id=5]
 [ext_resource path="res://sfx/spikeball.ogg" type="AudioStream" id=6]
@@ -11,6 +11,7 @@
 [ext_resource path="res://sfx/bump.ogg" type="AudioStream" id=9]
 [ext_resource path="res://sfx/slide_start.ogg" type="AudioStream" id=10]
 [ext_resource path="res://sfx/slide_loop.ogg" type="AudioStream" id=11]
+[ext_resource path="res://text/hed_schema_1.2.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,14 +20,19 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "rolled",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "dead",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "rolled",
+"name": "idle.1",
 "speed": 5.0
 } ]
 

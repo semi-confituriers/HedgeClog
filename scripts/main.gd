@@ -3,7 +3,7 @@ extends Spatial
 var current_level_id = 1
 
 var locked_hedgehogs = false
-var level_max = 20
+var level_max = 16
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/hed_schema_1.png-893f8fb217d274fbe944e7af6ccb4d82.s3tc.stex"
-path.etc="res://.import/hed_schema_1.png-893f8fb217d274fbe944e7af6ccb4d82.etc.stex"
+path.s3tc="res://.import/hed_schema_1.2.png-e17af82e64fdbba0e55c4e477b870533.s3tc.stex"
+path.etc="res://.import/hed_schema_1.2.png-e17af82e64fdbba0e55c4e477b870533.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://text/hed_schema_1.png"
-dest_files=[ "res://.import/hed_schema_1.png-893f8fb217d274fbe944e7af6ccb4d82.s3tc.stex", "res://.import/hed_schema_1.png-893f8fb217d274fbe944e7af6ccb4d82.etc.stex" ]
+source_file="res://text/hed_schema_1.2.png"
+dest_files=[ "res://.import/hed_schema_1.2.png-e17af82e64fdbba0e55c4e477b870533.s3tc.stex", "res://.import/hed_schema_1.2.png-e17af82e64fdbba0e55c4e477b870533.etc.stex" ]
 
 [params]
 
