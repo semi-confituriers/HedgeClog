@@ -135,7 +135,7 @@ func on_init_fire(center: Vector3):
 	
 func on_enter_fire(hedgehog: Node):
 	hedgehog.roast()
-	get_node("/root/Game").locked_hedgehogs = true
+	get_node("/root/Game").lockLevel(true)
 
 
 func on_init_exit(center: Vector3):
@@ -160,7 +160,7 @@ func on_enter_exit(hedgehog: Node):
 		
 	
 	if finished:
-		get_node("/root/Game").locked_hedgehogs = true
+		get_node("/root/Game").lockLevel()
 		hedgehog.playSound("Victory")
 		yield(get_tree().create_timer(1.0), "timeout")
 		get_node("/root/Game").next_level()

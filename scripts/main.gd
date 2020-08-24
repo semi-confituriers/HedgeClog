@@ -9,10 +9,10 @@ var level_max = 17
 func _ready():
 	load_level(current_level_id)
 	
-	$Gui/Prev.connect("pressed", self, "prev_level")
-	$Gui/Next.connect("pressed", self, "next_level")
-	$Gui/Restart.connect("pressed", self, "restart_level")
-	$Gui/Music.connect("pressed", self, "toggle_music")
+	$Gui/Ctrl/Prev.connect("pressed", self, "prev_level")
+	$Gui/Ctrl/Next.connect("pressed", self, "next_level")
+	$Gui/Ctrl/Restart.connect("pressed", self, "restart_level")
+	$Gui/Ctrl/Music.connect("pressed", self, "toggle_music")
 
 func toggle_music():
 	print("Toggle music: ", $BackgroundMusic.is_playing())
@@ -32,7 +32,7 @@ func next_level():
 		load_level(1)
 	else:
 		load_level(current_level_id + 1)
-		
+
 	
 func load_level(level: int):
 	var current_level = get_node("Level")
@@ -41,6 +41,7 @@ func load_level(level: int):
 		current_level.queue_free()
 	
 	locked_hedgehogs = false
+	$Gui/RestartHint.visible = false
 	current_level_id = level
 	
 	print("Loading level ", level)
@@ -64,9 +65,14 @@ func load_level(level: int):
 		
 	# Gui updating
 	$Gui/Level.text = "Level " + str(current_level_id) + " / " + str(level_max)
-	$Gui/Prev.disabled = current_level_id == 1
-	$Gui/Next.disabled = current_level_id == level_max
-		
+	$Gui/Ctrl/Prev.disabled = current_level_id == 1
+	$Gui/Ctrl/Next.disabled = current_level_id == level_max
+
+func lockLevel(hint: bool = false):
+	locked_hedgehogs = true
+	if hint:
+		$Gui/RestartHint.visible = true
+
 func hasMovingHedgehogs():
 	for hedgehog in $Level/hedgehogs.get_children():
 		if hedgehog.moving:
@@ -100,7 +106,7 @@ func moveHedgehogs(direction: Vector2):
 			
 			var dist = hedgehog_friend.tile - hedgehog.tile
 			if dist.length() < 1.1:
-				locked_hedgehogs = true
+				lockLevel(true)
 				hedgehog.rollItself()
 				yield(get_tree().create_timer(0.15), "timeout")
 		
