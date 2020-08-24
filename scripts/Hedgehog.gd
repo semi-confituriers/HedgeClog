@@ -53,8 +53,11 @@ func walkToTile(grid: GridMap, dest: Vector2, sliding: bool = false):
 		yield(get_tree().create_timer(0.2), "timeout")
 		playSound("SlideStart")
 		playSound("SlideLoop")
+		$Animations.play("Slide")
 		
 		yield($Tween, "tween_all_completed")
+		if $Animations.current_animation == "Slide": 
+			$Animations.stop()
 		get_node("Sfx/SlideLoop").stop()
 		
 #		$Tween.interpolate_property(self, "rotation:x",
