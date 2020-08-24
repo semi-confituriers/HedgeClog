@@ -35,7 +35,7 @@ func next_level():
 		
 	
 func load_level(level: int):
-	var current_level = $Level
+	var current_level = get_node("Level")
 	if current_level:
 		current_level.name = "_______Level"
 		current_level.queue_free()
