@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sfx/sb_wonderful.ogg" type="AudioStream" id=1]
 [ext_resource path="res://scripts/main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Collisions.tscn" type="PackedScene" id=3]
+[ext_resource path="res://text/music.png" type="Texture" id=4]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -42,8 +43,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Prev" type="Button" parent="Gui"]
+[node name="Music" type="Button" parent="Gui"]
 margin_right = 28.0
+margin_bottom = 31.0
+toggle_mode = true
+pressed = true
+icon = ExtResource( 4 )
+
+[node name="Prev" type="Button" parent="Gui"]
+margin_left = 38.0
+margin_right = 66.0
 margin_bottom = 31.0
 hint_tooltip = "Previous level"
 focus_mode = 0
@@ -51,8 +60,8 @@ enabled_focus_mode = 0
 text = "<<"
 
 [node name="Restart" type="Button" parent="Gui"]
-margin_left = 38.0
-margin_right = 95.0
+margin_left = 76.0
+margin_right = 133.0
 margin_bottom = 31.0
 hint_tooltip = "Restart this level (R, Enter, Backspace)"
 focus_mode = 0
@@ -60,8 +69,8 @@ enabled_focus_mode = 0
 text = "Restart"
 
 [node name="Next" type="Button" parent="Gui"]
-margin_left = 105.0
-margin_right = 133.0
+margin_left = 143.0
+margin_right = 171.0
 margin_bottom = 31.0
 hint_tooltip = "Next level / Skip level"
 focus_mode = 0
@@ -69,16 +78,16 @@ enabled_focus_mode = 0
 text = ">>"
 
 [node name="_spacer" type="Label" parent="Gui"]
-margin_left = 143.0
-margin_right = 151.0
+margin_left = 181.0
+margin_right = 189.0
 margin_bottom = 31.0
 text = "  
 "
 
 [node name="Level" type="Label" parent="Gui"]
-margin_left = 161.0
+margin_left = 199.0
 margin_top = 8.0
-margin_right = 260.0
+margin_right = 298.0
 margin_bottom = 22.0
 text = "Level 42 / 1337"
 align = 1

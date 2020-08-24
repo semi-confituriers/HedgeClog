@@ -12,6 +12,14 @@ func _ready():
 	$Gui/Prev.connect("pressed", self, "prev_level")
 	$Gui/Next.connect("pressed", self, "next_level")
 	$Gui/Restart.connect("pressed", self, "restart_level")
+	$Gui/Music.connect("pressed", self, "toggle_music")
+
+func toggle_music():
+	print("Toggle music: ", $BackgroundMusic.is_playing())
+	if $BackgroundMusic.is_playing():
+		$BackgroundMusic.stop()
+	else:
+		$BackgroundMusic.play()
 
 func restart_level():
 	load_level(current_level_id)
