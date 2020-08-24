@@ -1,14 +1,23 @@
 extends Spatial
 
+var current_level_id = 1
+
 var locked_hedgehogs = false
-var current_level_id = 10
+var level_max = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_level(current_level_id)
+	
+	$Gui/Prev.connect("pressed", self, "prev_level")
+	$Gui/Next.connect("pressed", self, "next_level")
+	$Gui/Restart.connect("pressed", self, "restart_level")
 
 func restart_level():
 	load_level(current_level_id)
+	
+func prev_level():
+	load_level(current_level_id - 1)
 	
 func next_level():
 	load_level(current_level_id + 1)
@@ -33,6 +42,11 @@ func load_level(level: int):
 		var tile_pos = grid.get_tile_at_vec3(hedgehog.translation)
 		hedgehog.tile = tile_pos
 		hedgehog.translation = grid.get_tile_center_vec3(tile_pos)
+		
+	# Gui updating
+	$Gui/Level.text = "Level " + str(current_level_id) + " / " + str(level_max)
+	$Gui/Prev.disabled = current_level_id == 1
+	$Gui/Next.disabled = current_level_id == level_max
 		
 func hasMovingHedgehogs():
 	for hedgehog in $Level/hedgehogs.get_children():
