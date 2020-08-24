@@ -141,9 +141,16 @@ tracks/3/keys = {
 script = ExtResource( 4 )
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
-transform = Transform( 0.190155, -0.23563, 0.234538, 0.00154933, 0.270817, 0.270822, -0.332457, -0.133511, 0.135411, -0.025, 0.527, 0.176 )
+transform = Transform( 0.190155, -0.23563, 0.234538, 0.00154933, 0.270817, 0.270822, -0.332457, -0.133511, 0.135411, -0.025, 0.587, 0.176 )
+shaded = true
 frames = SubResource( 1 )
 animation = "idle"
+
+[node name="OmniLight" type="OmniLight" parent="Sprite"]
+transform = Transform( 1.29631, 0.0105619, -2.26641, -1.60633, 1.8462, -0.910166, 1.59889, 1.84623, 0.923116, 0.693521, -0.0398555, 0.363671 )
+light_energy = 0.5
+omni_range = 0.7
+omni_attenuation = 0.870551
 
 [node name="Sfx" type="Node" parent="."]
 
