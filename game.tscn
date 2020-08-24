@@ -46,8 +46,10 @@ __meta__ = {
 [node name="Music" type="Button" parent="Gui"]
 margin_right = 28.0
 margin_bottom = 31.0
+focus_mode = 0
 toggle_mode = true
 pressed = true
+enabled_focus_mode = 0
 icon = ExtResource( 4 )
 
 [node name="Prev" type="Button" parent="Gui"]
