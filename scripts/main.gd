@@ -49,11 +49,12 @@ func load_level(level: int):
 	new_level.name = "Level"
 	add_child(new_level)
 	
-	if level == 16: 
-		$WorldEnvironment.environment.background_color = "#263646"
-	else : 
-		$WorldEnvironment.environment.background_color = "#497484"
-	
+	$WorldEnvironment.environment.background_color = {
+		9: "#ba5e1a",
+		13: "#1a4562",
+		16: "#263646",
+		17: "#478245",
+	}.get(level, "#497484")
 	
 	var grid = new_level.get_node("GridMap")
 	for hedgehog in new_level.get_node("hedgehogs").get_children():
