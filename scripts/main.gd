@@ -3,7 +3,7 @@ extends Spatial
 var current_level_id = 1
 
 var locked_hedgehogs = false
-var level_max = 16
+var level_max = 17
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,7 +39,7 @@ func load_level(level: int):
 	if current_level:
 		current_level.name = "_______Level"
 		current_level.queue_free()
-		
+	
 	locked_hedgehogs = false
 	current_level_id = level
 	
@@ -48,6 +48,12 @@ func load_level(level: int):
 	var new_level = new_level_res.instance()
 	new_level.name = "Level"
 	add_child(new_level)
+	
+	if level == 16: 
+		$WorldEnvironment.environment.background_color = "#263646"
+	else : 
+		$WorldEnvironment.environment.background_color = "#497484"
+	
 	
 	var grid = new_level.get_node("GridMap")
 	for hedgehog in new_level.get_node("hedgehogs").get_children():
