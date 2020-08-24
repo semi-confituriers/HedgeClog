@@ -35,8 +35,9 @@ environment = SubResource( 1 )
 [node name="Gui" type="HBoxContainer" parent="."]
 margin_left = 33.0
 margin_top = 31.0
-margin_right = 231.0
-margin_bottom = 54.0
+margin_right = 269.0
+margin_bottom = 62.0
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,33 +46,39 @@ __meta__ = {
 margin_right = 28.0
 margin_bottom = 31.0
 hint_tooltip = "Previous level"
+focus_mode = 0
+enabled_focus_mode = 0
 text = "<<"
 
 [node name="Restart" type="Button" parent="Gui"]
-margin_left = 32.0
-margin_right = 89.0
+margin_left = 38.0
+margin_right = 95.0
 margin_bottom = 31.0
 hint_tooltip = "Restart this level (R, Enter, Backspace)"
+focus_mode = 0
+enabled_focus_mode = 0
 text = "Restart"
 
 [node name="Next" type="Button" parent="Gui"]
-margin_left = 93.0
-margin_right = 121.0
+margin_left = 105.0
+margin_right = 133.0
 margin_bottom = 31.0
 hint_tooltip = "Next level / Skip level"
+focus_mode = 0
+enabled_focus_mode = 0
 text = ">>"
 
 [node name="_spacer" type="Label" parent="Gui"]
-margin_left = 125.0
-margin_right = 133.0
+margin_left = 143.0
+margin_right = 151.0
 margin_bottom = 31.0
 text = "  
 "
 
 [node name="Level" type="Label" parent="Gui"]
-margin_left = 137.0
+margin_left = 161.0
 margin_top = 8.0
-margin_right = 236.0
+margin_right = 260.0
 margin_bottom = 22.0
 text = "Level 42 / 1337"
 align = 1

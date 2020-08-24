@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/poster-ctrl.png-059c445585faac249cabe0bb3afb11e1.s3tc.stex"
-path.etc="res://.import/poster-ctrl.png-059c445585faac249cabe0bb3afb11e1.etc.stex"
+path.s3tc="res://.import/poster-game.png-06d009b5069e231954778d1c307dc6bc.s3tc.stex"
+path.etc="res://.import/poster-game.png-06d009b5069e231954778d1c307dc6bc.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://text/poster-ctrl.png"
-dest_files=[ "res://.import/poster-ctrl.png-059c445585faac249cabe0bb3afb11e1.s3tc.stex", "res://.import/poster-ctrl.png-059c445585faac249cabe0bb3afb11e1.etc.stex" ]
+source_file="res://text/poster-game.png"
+dest_files=[ "res://.import/poster-game.png-06d009b5069e231954778d1c307dc6bc.s3tc.stex", "res://.import/poster-game.png-06d009b5069e231954778d1c307dc6bc.etc.stex" ]
 
 [params]
 

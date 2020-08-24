@@ -108,6 +108,8 @@ func try_move(hedgehog: Node, direction: Vector2):
 func _ready():
 	# Instanciate collision objects
 	for tile_position in get_used_cells():
+		if tile_position.y > 0:
+			continue
 		var cell_id = get_cell_item(
 			tile_position.x,
 			tile_position.y,
