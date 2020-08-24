@@ -20,7 +20,11 @@ func prev_level():
 	load_level(current_level_id - 1)
 	
 func next_level():
-	load_level(current_level_id + 1)
+	if current_level_id == level_max:
+		load_level(1)
+	else:
+		load_level(current_level_id + 1)
+		
 	
 func load_level(level: int):
 	var current_level = $Level
