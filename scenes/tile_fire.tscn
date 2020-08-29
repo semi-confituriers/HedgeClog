@@ -4,7 +4,7 @@
 [ext_resource path="res://text/fire0.png" type="Texture" id=2]
 [ext_resource path="res://text/fire1.png" type="Texture" id=3]
 
-[sub_resource type="AnimatedTexture" id=2]
+[sub_resource type="AnimatedTexture" id=1]
 flags = 7
 frames = 3
 fps = 6.0
@@ -14,8 +14,7 @@ frame_1/delay_sec = 0.0
 frame_2/texture = ExtResource( 1 )
 frame_2/delay_sec = 0.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "Flicker"
+[sub_resource type="Animation" id=2]
 length = 2.0
 loop = true
 step = 0.01
@@ -34,13 +33,12 @@ tracks/0/keys = {
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( 0.2, -0.244949, 0.244949, 0, 0.282843, 0.282843, -0.34641, -0.141421, 0.141421, 0.263, 0.635, 0.265 )
-texture = SubResource( 2 )
+texture = SubResource( 1 )
 
 [node name="OmniLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 8.9407e-08, 2.85901, 2.98023e-08 )
 light_color = Color( 1, 0.607843, 0.101961, 1 )
 light_energy = 0.483033
-shadow_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OmniLight"]
-anims/Flicker = SubResource( 1 )
+anims/Flicker = SubResource( 2 )
