@@ -1,12 +1,12 @@
 # HedgeClog
 
-_A fire broke out at "Hedgehogs and associates" !
-All hedgehogs have to leave the building!
-But co-workers need to keep a safe distance from each others’ spikes !
-Help them get through the fire hazard!_
+_A fire broke out at "Hedgehogs and associates" !_
+_All hedgehogs have to leave the building !_
+_But co-workers need to keep a safe distance from each others’ spikes !_
+_Help them get through the fire hazard !_
 
 
-# Description
+## Description
 
 A puzzle game of 17 levels: It will take you about 30 minutes to finish the game.
 
@@ -17,11 +17,11 @@ If a level is too difficult, you can skip it using the top left buttons. Level 1
 We made all assets ourselves except the music: "Wonderful" by Scott Buckley.
 
 
-# Extra Challenges
+## Extra Challenges
 
 - Extra Distance
 
-# Credits
+## Credits
 
 - Music: "Wonderful" by Scott Buckley www.scottbuckley.com.au
 
@@ -29,3 +29,8 @@ We made all assets ourselves except the music: "Wonderful" by Scott Buckley.
 # Building the game
 
 This game has been developped with Godot 3.2.2. You need to install Godot, open the project with Godot, then go to Project -> Export, select your platform then click export.
+
+# Live HTML5 version
+
+https://hedgeclog.github.io/HedgeClog/
+
