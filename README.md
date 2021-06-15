@@ -32,5 +32,5 @@ This game has been developped with Godot 3.2.2. You need to install Godot, open 
 
 # Live HTML5 version
 
-https://hedgeclog.github.io/HedgeClog/
+https://semi-confituriers.github.io/HedgeClog/
 
